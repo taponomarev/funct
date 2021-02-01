@@ -46,7 +46,7 @@ class InvokeIfConditionTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvokeIf($arguments, $condition)
     {
-        Invoke\ifCondition([$this, 'fakeCallback'], $arguments, $condition);
+        Invoke\ifCondition([$this, 'fakeCallback'], $condition, $arguments);
 
         $should = $condition ? 'be' : 'not';
 
@@ -65,7 +65,7 @@ class InvokeIfConditionTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvokeIfWithStaticFunction($arguments, $condition)
     {
-        Invoke\ifCondition([self::class, 'fakeStaticCallback'], $arguments, $condition);
+        Invoke\ifCondition([self::class, 'fakeStaticCallback'], $condition, $arguments);
 
         $should = $condition ? 'be' : 'not';
 
